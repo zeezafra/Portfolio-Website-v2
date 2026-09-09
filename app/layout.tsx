@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
 import { ThemeProvider } from "@/components/ThemeProvider";
+import { Sidebar } from "@/components/Sidebar";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -31,18 +32,8 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
     >
       <body className="min-h-full flex flex-col">
         <ThemeProvider>
-          {/*
-            Empty shell for now — the real sidebar (profile block, nav
-            links, social icons, theme toggle) is Phase 2. This placeholder
-            just reserves the layout region so Phase 2 slots in without
-            restructuring app/layout.tsx.
-          */}
           <div className="flex min-h-full flex-col md:flex-row">
-            <aside
-              id="sidebar-placeholder"
-              className="hidden md:block md:w-64 md:shrink-0 border-r border-card-border"
-              aria-hidden="true"
-            />
+            <Sidebar />
             <main className="flex-1">{children}</main>
           </div>
         </ThemeProvider>
